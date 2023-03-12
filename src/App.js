@@ -33,7 +33,7 @@ function App() {
                         <div className="details">
                             <p>{dictionary.word}</p>
                             <span>
-                                {dictionary.meanings[0].partOfSpeech} - {dictionary.phonetics[2].text}
+                                {dictionary.meanings[1].partOfSpeech} - {dictionary.phonetic}
                             </span>
                         </div>
                         {/* <i className="fas fa-volume-up"></i> */}
@@ -49,15 +49,15 @@ function App() {
                         <li className="meaning">
                             <div className="details">
                                 <p>Meaning</p>
-                                <span>{dictionary.meanings[0].definitions[0].definition}</span>
+                                <span>{dictionary.meanings[0].definitions[0]?.definition}</span>
                             </div>
                         </li>
                         <li className="example">
                             <div className="details">
                                 <p>Example</p>
                                 <span>
-                                    {dictionary.meanings[2].definitions.map((item) => {
-                                        return <p>{item.example}</p>;
+                                    {dictionary.meanings[2].definitions?.map((item, index) => {
+                                        return <p key={index}>{item.example}</p>;
                                     })}
                                 </span>
                             </div>
@@ -65,7 +65,11 @@ function App() {
                         <li className="synonyms">
                             <div className="details">
                                 <p>Synonyms</p>
-                                <div className="list"></div>
+                                <div className="list">
+                                    {dictionary.meanings[1].synonyms.map((item, index) => {
+                                        return <p key={index}>{item}</p>;
+                                    })}
+                                </div>
                             </div>
                         </li>
                     </div>
