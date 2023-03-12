@@ -18,23 +18,26 @@ function App() {
 
     return (
         <div className="wrapper">
-            <header>{dictionary.word ? dictionary.word : "English Dictionary"}</header>
+            <header>English Dictionary</header>
             <div className="search d-flex">
                 <input type="text" placeholder="Search a word" value={query} onChange={(e) => setQuery(e.target.value)} />
                 <button className="btn" onClick={search}>
                     Search
                 </button>
             </div>
-            <p className="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
+            <p className="info-text">{dictionary.word ? "" : "Type any existing word and press enter to get meaning, example, synonyms, etc."}</p>
 
             {dictionary.word && (
                 <ul>
                     <li className="word">
                         <div className="details">
                             <p>{dictionary.word}</p>
-                            <span>{dictionary.word}</span>
+                            <span>
+                                {dictionary.meanings[0].partOfSpeech} - {dictionary.phonetics[2].text}
+                            </span>
                         </div>
-                        <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" strokeWidth={1.5} stroke="currentColor">
+                        {/* <i className="fas fa-volume-up"></i> */}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -52,7 +55,11 @@ function App() {
                         <li className="example">
                             <div className="details">
                                 <p>Example</p>
-                                <span>___</span>
+                                <span>
+                                    {dictionary.meanings[2].definitions.map((item) => {
+                                        return <p>{item.example}</p>;
+                                    })}
+                                </span>
                             </div>
                         </li>
                         <li className="synonyms">
