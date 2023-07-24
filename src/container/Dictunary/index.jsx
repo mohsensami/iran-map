@@ -3,21 +3,14 @@ import { countries } from "../../data/countries";
 import { useState } from "react";
 
 const Dictunary = () => {
+  const [result, setResult] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
-    text: "Hello",
+    text: "Hello World",
     from: "en-GB",
     to: "fa-IR",
   });
-
-  const [shouldFetchData, setShouldFetchData] = useState(false);
-  const {
-    data: result,
-    isLoading,
-    error,
-  } = useFetch(
-    `https://api.mymemory.translated.net/get?q=${formData.text}&langpair=${formData.from}|${formData.to}`,
-    shouldFetchData
-  );
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,8 +18,20 @@ const Dictunary = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    setShouldFetchData(true);
+    fetch(
+      `https://api.mymemory.translated.net/get?q=${formData.text}&langpair=${formData.from}|${formData.to}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setResult(data.matches);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error);
+      });
   };
 
   return (
@@ -76,9 +81,9 @@ const Dictunary = () => {
       <section>
         {isLoading && <p>Loading data...</p>}
         {error && <p>Error: {error}</p>}
-        {result?.matches?.map((item) => (
-          <div>{item.translation}</div>
-        ))}
+        {!isLoading &&
+          result &&
+          result?.map((item) => <div key={item.id}>{item.translation}</div>)}
       </section>
     </>
   );
