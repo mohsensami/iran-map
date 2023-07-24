@@ -33,11 +33,11 @@ const Dictunary = () => {
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
-        setResult(data.matches);
+        setResult(data);
       })
       .catch((error) => {
         setIsLoading(false);
-        setError(error);
+        setError(error.message);
       });
 
     setFormData({ ...formData, text: "" });
@@ -80,13 +80,28 @@ const Dictunary = () => {
           </div>
         </form>
       </section>
-      <section>
-        {isLoading && <p>Loading data...</p>}
-        {error && <p>Error: {error}</p>}
-        {!isLoading &&
-          result &&
-          result?.map((item) => <div key={item.id}>{item.translation}</div>)}
-      </section>
+
+      {!isLoading ? (
+        <div>
+          {/* <p>aaaaaaaaaaaaaaa</p> */}
+          {result.responseStatus === 200 ? (
+            <div>
+              <section>{result.responseData.translatedText}</section>
+              <section>
+                <hr />
+                {result.matches &&
+                  result.matches.map((item) => (
+                    <div key={item.id}>{item.translation}</div>
+                  ))}
+              </section>
+            </div>
+          ) : (
+            <p>error: {error}</p>
+          )}
+        </div>
+      ) : (
+        <p>Loading data...</p>
+      )}
     </>
   );
 };
