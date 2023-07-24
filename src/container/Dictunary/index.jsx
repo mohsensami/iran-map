@@ -16,6 +16,13 @@ const Dictunary = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleChangeLang = (e) => {
+    e.preventDefault();
+    setFormData((prev) => {
+      return { ...formData, from: prev.to, to: prev.from };
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -32,6 +39,8 @@ const Dictunary = () => {
         setIsLoading(false);
         setError(error);
       });
+
+    setFormData({ ...formData, text: "" });
   };
 
   return (
@@ -48,11 +57,7 @@ const Dictunary = () => {
             />
           </div>
           <div>
-            <select
-              defaultValue={formData.from}
-              name="from"
-              onChange={handleChange}
-            >
+            <select value={formData.from} name="from" onChange={handleChange}>
               {countries.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.title}
@@ -60,12 +65,9 @@ const Dictunary = () => {
               ))}
             </select>
           </div>
+          <button onClick={handleChangeLang}>change</button>
           <div>
-            <select
-              defaultValue={formData.to}
-              name="to"
-              onChange={handleChange}
-            >
+            <select value={formData.to} name="to" onChange={handleChange}>
               {countries.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.title}
