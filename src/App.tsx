@@ -1,5 +1,5 @@
 import './App.css';
-import { IranMap } from './components';
+import IranMap from './components/IranMap';
 
 function App() {
     return (
