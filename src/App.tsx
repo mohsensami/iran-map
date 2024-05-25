@@ -1,12 +1,12 @@
-import "./App.css";
-import Dictunary from "./container/Dictunary";
+import './App.css';
+import { IranMap } from './components';
 
 function App() {
-  return (
-    <>
-      <Dictunary />
-    </>
-  );
+    return (
+        <>
+            <IranMap />
+        </>
+    );
 }
 
 export default App;
