@@ -1,1 +1,0 @@
-export { IranMap } from './IranMap';

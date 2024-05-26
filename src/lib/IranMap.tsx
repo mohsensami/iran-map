@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import iranProvinces from '../data/iranProvinces';
 import iranBorder, { caspianD, persianGulfD } from '../data/IranMapData';
 import styles from './IranMap.module.css';
@@ -7,13 +7,13 @@ const useMouse = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        function handle(e) {
+        function handle(e: MouseEvent) {
             setMousePosition({
                 x: e.pageX,
                 y: e.pageY,
             });
         }
-        const mapEffect = document.querySelector('svg');
+        const mapEffect = document.querySelector('svg')!;
         mapEffect.addEventListener('mousemove', handle);
         return () => document.removeEventListener('mousemove', handle);
     }, [setMousePosition]);
@@ -21,7 +21,7 @@ const useMouse = () => {
     return mousePosition;
 };
 
-const IranMap = () => {
+export const IranMap = () => {
     const { x, y } = useMouse();
     const [provinces] = useState(() => iranProvinces);
     const [provinceName, setProvinceName] = useState('');
@@ -32,15 +32,18 @@ const IranMap = () => {
 
     return (
         <>
-            <span className={styles.show_title}>
+            {/* <span className={styles.show_title}>
                 {provinceName}
-                <style jsx>{`
+                <style jsx={true as boolean}>{`
                     span {
                         left: ${x + 5 + 'px'};
                         top: ${y + 5 + 'px'};
                         z-index: 999;
                     }
                 `}</style>
+            </span> */}
+            <span className={styles.show_title} style={{ left: `${x + 5}px`, top: `${y + 5}px`, zIndex: 999 }}>
+                {provinceName}
             </span>
             {provinceSelected && (
                 <div>
@@ -139,5 +142,3 @@ const IranMap = () => {
         </>
     );
 };
-
-export default IranMap;
