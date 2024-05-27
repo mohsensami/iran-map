@@ -61,7 +61,7 @@ Here are the props that can be passed to the `<IranMap />` component:
 
 ## Authors
 
--   [@mohsensami](https://github.com/mohsensami
+-   [@mohsensami](https://github.com/mohsensami)
 
 ## Contributing
 
