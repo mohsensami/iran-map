@@ -3,6 +3,11 @@ import iranProvinces from '../data/iranProvinces';
 import iranBorder, { caspianD, persianGulfD } from '../data/IranMapData';
 import styles from './IranMap.module.css';
 
+interface IProvinceData {
+    name?: string;
+    count?: number;
+}
+
 const useMouse = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -21,72 +26,25 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = () => {
+export const IranMap = ({ data }) => {
     const { x, y } = useMouse();
     const [provinces] = useState(() => iranProvinces);
-    const [provinceName, setProvinceName] = useState('');
+    const [provinceData, setProvinceData] = useState<IProvinceData>({ name: '', count: '' });
     const [provinceNameOnClick, setProvinceNameOnClick] = useState('');
-    const [mapZoom, setMapZoom] = useState(false);
     const [provinceSelected, setProvinceSelected] = useState(false);
     const [cities, setCities] = useState(['تمام ایران']);
 
     return (
         <div className="iran-map-react">
-            {/* <span className={styles.show_title}>
-                {provinceName}
-                <style jsx={true as boolean}>{`
-                    span {
-                        left: ${x + 5 + 'px'};
-                        top: ${y + 5 + 'px'};
-                        z-index: 999;
-                    }
-                `}</style>
-            </span> */}
             <span className={styles.show_title} style={{ left: `${x + 5}px`, top: `${y + 5}px`, zIndex: 999 }}>
-                {provinceName}
+                {provinceData.name && <div>{provinceData.name}</div>}
+                {provinceData.count && <div>{provinceData.count}</div>}
             </span>
-            {provinceSelected && (
-                <div>
-                    <div className={styles.backdrop} onClick={() => setProvinceSelected(false)}></div>
-                    <div className={styles.cities}>
-                        <p>
-                            <span className={styles.selected_province}>انتخاب شهر در </span>
-                            <span>{provinceNameOnClick}</span>
-                        </p>
-                        <form>
-                            {cities.map((city) => {
-                                return (
-                                    <>
-                                        <input type="checkbox" value={city} name={city} />
-                                        <label htmlFor={city} className={styles.city_label}>
-                                            {city}
-                                        </label>
-                                        <br />
-                                    </>
-                                );
-                            })}
-                            <div className={styles.select_cities_btns}>
-                                <button type="button" onClick={() => setProvinceSelected(false)}>
-                                    بازگشت
-                                </button>
-                                <input type="submit" value="تایید" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )}
+
             <div className={styles.container}>
                 <div className={styles.map}>
-                    <button
-                        className={
-                            mapZoom ? styles.zoom_btn + ' ' + styles.zoom_out : styles.zoom_btn + ' ' + styles.zoom_in
-                        }
-                        onClick={() => {
-                            setMapZoom(!mapZoom);
-                        }}
-                    />
                     <svg
-                        className={mapZoom ? styles.svg + ' ' + styles.map_zoom : styles.svg}
+                        className={styles.svg}
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -102,9 +60,10 @@ export const IranMap = () => {
                                 <path
                                     key={province.id}
                                     className={province.className}
+                                    data-name="دامغان"
                                     d={province.d}
-                                    onMouseOver={() => setProvinceName(province.name)}
-                                    onMouseLeave={() => setProvinceName('')}
+                                    onMouseOver={() => setProvinceData({ name: province.name, count: province.count })}
+                                    onMouseLeave={() => setProvinceData({})}
                                     onClick={() => {
                                         setCities(province.cities);
                                         setProvinceSelected(true);
@@ -114,11 +73,15 @@ export const IranMap = () => {
                             ))}
                         </g>
                         <g className={styles.sea}>
-                            <path className={styles.caspian} d={caspianD} />
+                            <path
+                                className={styles.caspian}
+                                d={caspianD}
+                                onMouseOver={() => setProvinceData({ name: 'دریاچه خزر' })}
+                            />
                             <path
                                 className={styles.persian_gulf}
-                                onMouseOver={() => setProvinceName('جزایر خلیج فارس')}
-                                onMouseLeave={() => setProvinceName('')}
+                                onMouseOver={() => setProvinceData({ name: 'جزایر خلیج فارس' })}
+                                onMouseLeave={() => setProvinceData({})}
                                 d={persianGulfD}
                             />
                         </g>

@@ -11,6 +11,12 @@ The Iran Map React Component is a versatile and customizable map component that 
 -   Lightweight: Minimal dependencies to keep your application fast and responsive.
 -   Easy Integration: Simple and straightforward setup to get the map up and running quickly.
 
+## Demo
+
+[**Live Demo**](https://mohsensami.github.io/iran-map-react/)
+
+[iran-map](./assets/iran-map.jpg)
+
 ## Installation
 
 The package can be installed via [npm](https://github.com/npm/cli):
@@ -39,17 +45,19 @@ export default App;
 
 ## Props
 
-Here are the props that can be passed to the `<ReactTransition />` component:
+Here are the props that can be passed to the `<IranMap />` component:
 
-| Prop Name      | Type       | Default Value | Description                                                           |
-| -------------- | ---------- | ------------- | --------------------------------------------------------------------- |
-| `color`        | `String`   | `blue`        | (optional): Customize the color scheme of the date picker.            |
-| `isDark`       | `Boolean`  | `false`       | (optional): Enable dark mode for the date picker.                     |
-| `setDateRange` | `Function` | `undefiend`   | A function to update the selected date range.                         |
-| `dateRange`    | `Array`    | `undefiend`   | An array representing the selected date range.                        |
-| `elementId`    | `String`   | `''`          | (optional): The ID of the input element to attach the date picker to. |
-| `isVisible`    | `Boolean`  | `true`        | (optional): Control the visibility of the date picker.                |
-| `setIsVisible` | `String`   | `undefiend`   | (optional): A function to update the visibility of the date picker.   |
+| Name                      | Type       | Required | Description                                                                                              |
+| :------------------------ | :--------- | :------- | :------------------------------------------------------------------------------------------------------- |
+| `data`                    | `object`   | True     | An object that has 'Data schema' items as provinces                                                      |
+| `colorRange`              | `string`   | True     | It defines the range of color based on it's value and it should be rgb color like this : `"30, 70, 181"` |
+| `width`                   | `number`   | False    | Width of the map                                                                                         |
+| `textColor`               | `string`   | False    | Color of map texts                                                                                       |
+| `defaultSelectedProvince` | `string`   | False    | You can set one of the provinces from 'Data schema' as default selected province                         |
+| `deactiveProvinceColor`   | `string`   | False    | It set color of the provinces with `0` value                                                             |
+| `selectedProvinceColor`   | `string`   | False    | Color of the clicked province                                                                            |
+| `tooltipTitle`            | `string`   | False    | You can add a name for the value in tooltip                                                              |
+| `selectProvinceHandler`   | `function` | False    | You can define a function like example above to get selected province name                               |
 
 ## Authors
 

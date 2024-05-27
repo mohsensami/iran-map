@@ -3,15 +3,9 @@
     font-family: Vazirmatn, sans-serif;
 }
 .container {
-    display: flex;
-    justify-content: center;
-    direction: rtl;
-    text-align: right;
-    padding: 0 0 1rem 0;
     font-size: 11px;
-    margin: 0 auto;
+
     overflow-x: auto;
-    padding-top: 5rem;
 }
 
 .show_title {
@@ -67,43 +61,6 @@
 .map .province path:focus {
     fill: #1bb97c;
     outline: 0;
-}
-
-.zoom_btn {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding: 0.5rem 0.5rem 0.5rem 0;
-    background: linear-gradient(90deg, #ed6292 25%, #ed5760 87.5%);
-    z-index: 9999;
-}
-
-.zoom_in::before {
-    content: 'بزرگ نمایی نقشه';
-    background-image: url(../assets/bx-zoom-in.svg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding: 0.7rem 1.7rem 0.7rem 0.7rem;
-}
-
-.zoom_out::before {
-    content: 'کوچک ‌نمایی نقشه';
-    background-image: url(../assets/bx-zoom-out.svg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding: 0.7rem 1.7rem 0.7rem 0.7rem;
-}
-
-.zoom_out {
-    position: fixed;
-    bottom: 1rem;
-    right: 5vw;
 }
 
 .cities {
