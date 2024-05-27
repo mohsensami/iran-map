@@ -26,14 +26,16 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = ({ data }) => {
+export const IranMap = () => {
     const { x, y } = useMouse();
     const [provinces] = useState(() => iranProvinces);
-    const [provinceData, setProvinceData] = useState<IProvinceData>({ name: '', count: '' });
+    const [provinceData, setProvinceData] = useState<IProvinceData>({ name: '', count: 0 });
     const [provinceNameOnClick, setProvinceNameOnClick] = useState('');
     const [provinceSelected, setProvinceSelected] = useState(false);
     const [cities, setCities] = useState(['تمام ایران']);
-
+    useEffect(() => {
+        console.log(provinceNameOnClick, provinceSelected, cities);
+    }, []);
     return (
         <div className="iran-map-react">
             <span className={styles.show_title} style={{ left: `${x + 5}px`, top: `${y + 5}px`, zIndex: 999 }}>

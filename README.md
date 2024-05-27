@@ -15,7 +15,7 @@ The Iran Map React Component is a versatile and customizable map component that 
 
 [**Live Demo**](https://mohsensami.github.io/iran-map-react/)
 
-[iran-map](./assets/iran-map.jpg)
+[iran-map](./assets/iranMap.png)
 
 ## Installation
 
