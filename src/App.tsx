@@ -1,4 +1,3 @@
-import './App.css';
 import { IranMap } from './lib/IranMap';
 
 function App() {

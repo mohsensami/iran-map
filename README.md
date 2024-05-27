@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Iran Map React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Iran Map React Component is a versatile and customizable map component that displays all cities of Iran. Designed specifically for React.js applications, this package allows developers to easily integrate an interactive map of Iran into their projects.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Comprehensive Coverage: Displays all cities in Iran with precise locations.
+-   Customization: Easily customize the appearance, including colors, labels, and styles to match your application's design.
+-   Interactivity: Supports interactive features such as tooltips, hover effects, and click events to enhance user engagement.
+-   Responsive Design: Ensures optimal display and performance across various devices and screen sizes.
+-   Lightweight: Minimal dependencies to keep your application fast and responsive.
+-   Easy Integration: Simple and straightforward setup to get the map up and running quickly.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The package can be installed via [npm](https://github.com/npm/cli):
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+npm install iran-map-react --save
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+React Component:
+
+```javascript
+import { IranMap } from './lib/IranMap';
+
+function App() {
+    return (
+        <>
+            <IranMap />
+        </>
+    );
+}
+
+export default App;
+```
+
+## Props
+
+Here are the props that can be passed to the `<ReactTransition />` component:
+
+| Prop Name      | Type       | Default Value | Description                                                           |
+| -------------- | ---------- | ------------- | --------------------------------------------------------------------- |
+| `color`        | `String`   | `blue`        | (optional): Customize the color scheme of the date picker.            |
+| `isDark`       | `Boolean`  | `false`       | (optional): Enable dark mode for the date picker.                     |
+| `setDateRange` | `Function` | `undefiend`   | A function to update the selected date range.                         |
+| `dateRange`    | `Array`    | `undefiend`   | An array representing the selected date range.                        |
+| `elementId`    | `String`   | `''`          | (optional): The ID of the input element to attach the date picker to. |
+| `isVisible`    | `Boolean`  | `true`        | (optional): Control the visibility of the date picker.                |
+| `setIsVisible` | `String`   | `undefiend`   | (optional): A function to update the visibility of the date picker.   |
+
+## Authors
+
+-   [@mohsensami](https://github.com/mohsensami
+
+## Contributing
+
+If you want to contribute to this project and make it better, your help is very welcome. Create an issue or submit a pull request.

@@ -31,7 +31,7 @@ export const IranMap = () => {
     const [cities, setCities] = useState(['تمام ایران']);
 
     return (
-        <>
+        <div className="iran-map-react">
             {/* <span className={styles.show_title}>
                 {provinceName}
                 <style jsx={true as boolean}>{`
@@ -139,6 +139,6 @@ export const IranMap = () => {
                     </svg>
                 </div>
             </div>
-        </>
+        </div>
     );
 };

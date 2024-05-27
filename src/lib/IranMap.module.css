@@ -1,3 +1,7 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+* {
+    font-family: Vazirmatn, sans-serif;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -53,7 +57,7 @@
 
 .map .province path:hover {
     fill: #c7414a;
-    cursor: crosshair;
+    cursor: pointer;
 }
 
 .map .sea path:nth-child(2):hover {

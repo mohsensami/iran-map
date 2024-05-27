@@ -1,10 +1,10 @@
 {
-    "name": "react-iran-city-map",
-    "version": "1.1.0",
+    "name": "iran-map-react",
+    "version": "0.0.1",
     "private": false,
     "description": "Iran map in SVG format, includes all provinces and cities.",
-    "main": "./dist/react-iran-city-map.umd.js",
-    "module": "./dist/react-iran-city-map.es.js",
+    "main": "./dist/iran-map-react.umd.js",
+    "module": "./dist/iran-map-react.es.js",
     "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
