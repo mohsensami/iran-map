@@ -1,3 +1,1 @@
-import { IranMap } from './IranMap';
-
-export { IranMap };
+export { IranMap } from './IranMap';
