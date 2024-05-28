@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import iranProvinces from '../data/iranProvinces';
 import iranBorder, { caspianD, persianGulfD } from '../data/IranMapData';
 import styles from './IranMap.module.css';
-
-interface IProvinceData {
-    name?: string;
-    count?: number;
-}
+import { IProvinceData, RegionData } from '../interfaces';
 
 const useMouse = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -26,21 +22,27 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = () => {
+export const IranMap = (props: { data: RegionData }) => {
     const { x, y } = useMouse();
-    const [provinces] = useState(() => iranProvinces);
+
+    const newData = iranProvinces.map((item) => {
+        return {
+            id: item.id,
+            d: item.d,
+            className: item.className,
+            name: item.name,
+            count: props.data[item.className] ? props.data[item.className] : item.count,
+        };
+    });
+
+    const [provinces] = useState(() => newData);
     const [provinceData, setProvinceData] = useState<IProvinceData>({ name: '', count: 0 });
-    const [provinceNameOnClick, setProvinceNameOnClick] = useState('');
-    const [provinceSelected, setProvinceSelected] = useState(false);
-    const [cities, setCities] = useState(['تمام ایران']);
-    useEffect(() => {
-        console.log(provinceNameOnClick, provinceSelected, cities);
-    }, []);
+
     return (
         <div className="iran-map-react">
             <span className={styles.show_title} style={{ left: `${x + 5}px`, top: `${y + 5}px`, zIndex: 999 }}>
                 {provinceData.name && <div>{provinceData.name}</div>}
-                {provinceData.count && <div>{provinceData.count}</div>}
+                {provinceData.count !== 0 && <div>{provinceData.count}</div>}
             </span>
 
             <div className={styles.container}>
@@ -61,16 +63,12 @@ export const IranMap = () => {
                             {provinces.map((province) => (
                                 <path
                                     key={province.id}
-                                    className={province.className}
-                                    data-name="دامغان"
+                                    className={`${province.className} ${
+                                        province.count > 20 ? styles.green : styles.lightGreen
+                                    }`}
                                     d={province.d}
                                     onMouseOver={() => setProvinceData({ name: province.name, count: province.count })}
                                     onMouseLeave={() => setProvinceData({})}
-                                    onClick={() => {
-                                        setCities(province.cities);
-                                        setProvinceSelected(true);
-                                        setProvinceNameOnClick(province.name);
-                                    }}
                                 />
                             ))}
                         </g>
@@ -79,6 +77,7 @@ export const IranMap = () => {
                                 className={styles.caspian}
                                 d={caspianD}
                                 onMouseOver={() => setProvinceData({ name: 'دریاچه خزر' })}
+                                onMouseLeave={() => setProvinceData({})}
                             />
                             <path
                                 className={styles.persian_gulf}

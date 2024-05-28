@@ -185,3 +185,10 @@
         right: 10%;
     }
 }
+
+.lightGreen {
+    fill: #7a9b55 !important;
+}
+.green {
+    fill: #52722f !important;
+}

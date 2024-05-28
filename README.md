@@ -33,9 +33,42 @@ React Component:
 import { IranMap } from './lib/IranMap';
 
 function App() {
+    const mapData = {
+        ardabil: 16,
+        isfahan: 20,
+        alborz: 11,
+        ilam: 14,
+        eastAzerbaijan: 10,
+        westAzerbaijan: 20,
+        bushehr: 15,
+        tehran: 35,
+        chaharmahalandBakhtiari: 6,
+        southKhorasan: 19,
+        razaviKhorasan: 11,
+        northKhorasan: 19,
+        khuzestan: 12,
+        zanjan: 12,
+        semnan: 9,
+        sistanAndBaluchestan: 3,
+        fars: 7,
+        qazvin: 25,
+        qom: 22,
+        kurdistan: 24,
+        kerman: 23,
+        kohgiluyehAndBoyerAhmad: 20,
+        kermanshah: 7,
+        golestan: 18,
+        gilan: 14,
+        lorestan: 7,
+        mazandaran: 18,
+        markazi: 25,
+        hormozgan: 6,
+        hamadan: 19,
+        yazd: 14,
+    };
     return (
         <>
-            <IranMap />
+            <IranMap data={mapData} />
         </>
     );
 }
@@ -47,17 +80,9 @@ export default App;
 
 Here are the props that can be passed to the `<IranMap />` component:
 
-| Name                      | Type       | Required | Description                                                                                              |
-| :------------------------ | :--------- | :------- | :------------------------------------------------------------------------------------------------------- |
-| `data`                    | `object`   | True     | An object that has 'Data schema' items as provinces                                                      |
-| `colorRange`              | `string`   | True     | It defines the range of color based on it's value and it should be rgb color like this : `"30, 70, 181"` |
-| `width`                   | `number`   | False    | Width of the map                                                                                         |
-| `textColor`               | `string`   | False    | Color of map texts                                                                                       |
-| `defaultSelectedProvince` | `string`   | False    | You can set one of the provinces from 'Data schema' as default selected province                         |
-| `deactiveProvinceColor`   | `string`   | False    | It set color of the provinces with `0` value                                                             |
-| `selectedProvinceColor`   | `string`   | False    | Color of the clicked province                                                                            |
-| `tooltipTitle`            | `string`   | False    | You can add a name for the value in tooltip                                                              |
-| `selectProvinceHandler`   | `function` | False    | You can define a function like example above to get selected province name                               |
+| Name   | Type     | Required | Description                                         |
+| :----- | :------- | :------- | :-------------------------------------------------- |
+| `data` | `object` | True     | An object that has 'Data schema' items as provinces |
 
 ## Authors
 
