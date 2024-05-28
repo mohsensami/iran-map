@@ -22,7 +22,7 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = (props: { data: RegionData }) => {
+export const IranMap = (props: { data: RegionData; seaBg?: string }) => {
     const { x, y } = useMouse();
 
     const newData = iranProvinces.map((item) => {
@@ -72,7 +72,11 @@ export const IranMap = (props: { data: RegionData }) => {
                                 />
                             ))}
                         </g>
-                        <g className={styles.sea}>
+                        <g
+                            className={!props.seaBg ? styles.sea : undefined}
+                            style={props.seaBg ? { fill: props.seaBg } : undefined}
+                            // className={props.seaBg ? props.seaBg : styles.sea}
+                        >
                             <path
                                 className={styles.caspian}
                                 d={caspianD}

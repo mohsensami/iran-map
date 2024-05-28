@@ -80,9 +80,10 @@ export default App;
 
 Here are the props that can be passed to the `<IranMap />` component:
 
-| Name   | Type     | Required | Description                                         |
-| :----- | :------- | :------- | :-------------------------------------------------- |
-| `data` | `object` | True     | An object that has 'Data schema' items as provinces |
+| Name    | Type     | Required | Description                                         |
+| :------ | :------- | :------- | :-------------------------------------------------- |
+| `data`  | `object` | True     | An object that has 'Data schema' items as provinces |
+| `seaBg` | `string` | False    | (optional): Customize the color scheme of the Sea.  |
 
 ## Authors
 
