@@ -30,7 +30,7 @@ npm install iran-map-react
 React Component:
 
 ```javascript
-import { IranMap } from 'IranMap';
+import { IranMap } from 'iran-map-react';
 
 function App() {
     const mapData = {
