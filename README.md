@@ -13,7 +13,7 @@ The Iran Map React Component is a versatile and customizable map component that 
 
 ## Demo
 
-[**Live Demo**](https://mohsensami.github.io/iran-map-react/)
+[**Live Demo**](#)
 
 ![iran-map](https://github.com/mohsensami/iran-map/blob/main/assets/iranMap.png?raw=true)
 
@@ -22,7 +22,7 @@ The Iran Map React Component is a versatile and customizable map component that 
 The package can be installed via [npm](https://github.com/npm/cli):
 
 ```
-npm install iran-map-react --save
+npm install iran-map-react
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ npm install iran-map-react --save
 React Component:
 
 ```javascript
-import { IranMap } from './lib/IranMap';
+import { IranMap } from 'IranMap';
 
 function App() {
     const mapData = {
@@ -68,7 +68,7 @@ function App() {
     };
     return (
         <>
-            <IranMap data={mapData} />
+            <IranMap data={mapData} seaBg="#2196f3" />
         </>
     );
 }
