@@ -68,7 +68,7 @@ function App() {
     };
     return (
         <>
-            <IranMap data={mapData} seaBg="#2196f3" />
+            <IranMap data={mapData} seaBg="#2196f3" width={600} />
         </>
     );
 }
@@ -84,6 +84,7 @@ Here are the props that can be passed to the `<IranMap />` component:
 | :------ | :------- | :------- | :-------------------------------------------------- |
 | `data`  | `object` | True     | An object that has 'Data schema' items as provinces |
 | `seaBg` | `string` | False    | (optional): Customize the color scheme of the Sea.  |
+| `width` | `number` | False    | (optional): Width of the svg map. (default 600px)   |
 
 ## Authors
 

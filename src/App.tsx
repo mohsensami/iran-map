@@ -36,7 +36,7 @@ function App() {
     };
     return (
         <>
-            <IranMap data={mapData} seaBg="#2196f3" />
+            <IranMap data={mapData} seaBg="#2196f3" width={200} />
         </>
     );
 }

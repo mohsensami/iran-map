@@ -30,8 +30,8 @@
 
 .map .svg {
     position: relative;
-    height: 80vh;
-    width: auto;
+    /* width: 600px; */
+    height: auto;
     transition: transform 2.5s ease;
     overflow: auto;
 }
@@ -163,8 +163,6 @@
 
     .map .svg {
         padding-top: 1rem;
-        width: 90vw;
-        height: auto;
     }
 
     .map .map_zoom {

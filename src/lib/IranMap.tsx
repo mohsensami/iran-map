@@ -22,7 +22,7 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = (props: { data: RegionData; seaBg?: string }) => {
+export const IranMap = (props: { data: RegionData; seaBg?: string; width: number }) => {
     const { x, y } = useMouse();
 
     const newData = iranProvinces.map((item) => {
@@ -49,6 +49,7 @@ export const IranMap = (props: { data: RegionData; seaBg?: string }) => {
                 <div className={styles.map}>
                     <svg
                         className={styles.svg}
+                        style={props.width ? { width: props.width } : { width: 600 }}
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
