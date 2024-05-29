@@ -22,7 +22,13 @@ const useMouse = () => {
     return mousePosition;
 };
 
-export const IranMap = (props: { data: RegionData; seaBg?: string; width: number }) => {
+export const IranMap = (props: {
+    data: RegionData;
+    seaBg?: string;
+    width?: number;
+    colorSelectedProvince?: string;
+    defaultSelectedProvince?: string;
+}) => {
     const { x, y } = useMouse();
 
     const newData = iranProvinces.map((item) => {
@@ -67,6 +73,16 @@ export const IranMap = (props: { data: RegionData; seaBg?: string; width: number
                                     className={`${province.className} ${
                                         province.count > 20 ? styles.green : styles.lightGreen
                                     }`}
+                                    style={
+                                        props.defaultSelectedProvince
+                                            ? {
+                                                  fill:
+                                                      props.defaultSelectedProvince === province.className
+                                                          ? props.colorSelectedProvince
+                                                          : undefined,
+                                              }
+                                            : undefined
+                                    }
                                     d={province.d}
                                     onMouseOver={() => setProvinceData({ name: province.name, count: province.count })}
                                     onMouseLeave={() => setProvinceData({})}

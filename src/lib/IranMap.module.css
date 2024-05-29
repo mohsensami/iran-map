@@ -40,10 +40,6 @@
     fill: #fff;
 }
 
-.province {
-    fill: #999;
-}
-
 .map .sea path,
 .map .lake path {
     fill: #6caed8;
@@ -185,8 +181,8 @@
 }
 
 .lightGreen {
-    fill: #7a9b55 !important;
+    fill: #7a9b55;
 }
 .green {
-    fill: #52722f !important;
+    fill: #52722f;
 }

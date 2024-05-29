@@ -68,7 +68,13 @@ function App() {
     };
     return (
         <>
-            <IranMap data={mapData} seaBg="#2196f3" width={600} />
+            <IranMap
+                data={mapData}
+                seaBg="#2196f3"
+                width={600}
+                colorSelectedProvince="#e91e63"
+                defaultSelectedProvince="tehran"
+            />
         </>
     );
 }
@@ -80,11 +86,13 @@ export default App;
 
 Here are the props that can be passed to the `<IranMap />` component:
 
-| Name    | Type     | Required | Description                                         |
-| :------ | :------- | :------- | :-------------------------------------------------- |
-| `data`  | `object` | True     | An object that has 'Data schema' items as provinces |
-| `seaBg` | `string` | False    | (optional): Customize the color scheme of the Sea.  |
-| `width` | `number` | False    | (optional): Width of the svg map. (default 600px)   |
+| Name                      | Type     | Required | Description                                                     |
+| :------------------------ | :------- | :------- | :-------------------------------------------------------------- |
+| `data`                    | `object` | True     | An object that has 'Data schema' items as provinces             |
+| `seaBg`                   | `string` | False    | (optional): Customize the color scheme of the Sea.              |
+| `width`                   | `number` | False    | (optional): Width of the svg map. (default 600px)               |
+| `defaultSelectedProvince` | `string` | False    | (optional): set the default province. (default is none of them) |
+| `colorSelectedProvince`   | `string` | False    | (optional): set the color selected province.                    |
 
 ## Authors
 

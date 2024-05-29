@@ -36,7 +36,13 @@ function App() {
     };
     return (
         <>
-            <IranMap data={mapData} seaBg="#2196f3" width={200} />
+            <IranMap
+                data={mapData}
+                seaBg="#2196f3"
+                width={600}
+                colorSelectedProvince="#e91e63"
+                defaultSelectedProvince="tehran"
+            />
         </>
     );
 }
