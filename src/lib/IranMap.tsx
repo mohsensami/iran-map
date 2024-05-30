@@ -54,8 +54,8 @@ export const IranMap = (props: {
             <div className={styles.container}>
                 <div className={styles.map}>
                     <svg
+                        style={props.width ? { width: props.width } : { width: '100%' }}
                         className={styles.svg}
-                        style={props.width ? { width: props.width } : { width: 600 }}
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"

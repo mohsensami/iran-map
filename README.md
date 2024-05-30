@@ -90,7 +90,7 @@ Here are the props that can be passed to the `<IranMap />` component:
 | :------------------------ | :------- | :------- | :-------------------------------------------------------------- |
 | `data`                    | `object` | True     | An object that has 'Data schema' items as provinces             |
 | `seaBg`                   | `string` | False    | (optional): Customize the color scheme of the Sea.              |
-| `width`                   | `number` | False    | (optional): Width of the svg map. (default 600px)               |
+| `width`                   | `number` | False    | (optional): Width of the svg map. (default 100% of screen)      |
 | `defaultSelectedProvince` | `string` | False    | (optional): set the default province. (default is none of them) |
 | `colorSelectedProvince`   | `string` | False    | (optional): set the color selected province.                    |
 
