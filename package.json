@@ -1,7 +1,7 @@
 {
-    "homepage": "http://mohsensami.github.io/iran-map-react",
+    "homepage": "http://mohsensami.github.io/iran-map",
     "name": "iran-map-react",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "private": false,
     "description": "Iran map in SVG format, Displays all cities in Iran with precise locations.",
     "main": "./dist/iran-map-react.umd.js",
