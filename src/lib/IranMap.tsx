@@ -28,6 +28,7 @@ export const IranMap = (props: {
     width?: number;
     colorSelectedProvince?: string;
     defaultSelectedProvince?: string;
+    colorProvincesRange?: string;
 }) => {
     const { x, y } = useMouse();
 
@@ -70,18 +71,25 @@ export const IranMap = (props: {
                             {provinces.map((province) => (
                                 <path
                                     key={province.id}
-                                    className={`${province.className} ${
-                                        province.count > 20 ? styles.green : styles.lightGreen
-                                    }`}
+                                    // className={`${province.className} ${
+                                    //     province.count > 20 ? `rgb(` + props.colorProvincesRange + `)` : styles.lightGreen
+                                    // }`}
                                     style={
-                                        props.defaultSelectedProvince
+                                        props.defaultSelectedProvince === province.className
                                             ? {
                                                   fill:
                                                       props.defaultSelectedProvince === province.className
                                                           ? props.colorSelectedProvince
                                                           : undefined,
                                               }
-                                            : undefined
+                                            : {
+                                                  fill:
+                                                      `rgb(` +
+                                                      props.colorProvincesRange +
+                                                      `, ` +
+                                                      province.count / 20 +
+                                                      `)`,
+                                              }
                                     }
                                     d={province.d}
                                     onMouseOver={() => setProvinceData({ name: province.name, count: province.count })}

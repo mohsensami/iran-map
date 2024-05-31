@@ -17,7 +17,7 @@ function App() {
         khuzestan: 12,
         zanjan: 12,
         semnan: 9,
-        sistanAndBaluchestan: 3,
+        sistanAndBaluchestan: 11,
         fars: 7,
         qazvin: 25,
         qom: 22,
@@ -40,6 +40,7 @@ function App() {
                 data={mapData}
                 seaBg="#2196f3"
                 width={600}
+                colorProvincesRange="122, 155, 85"
                 colorSelectedProvince="#e91e63"
                 defaultSelectedProvince="tehran"
             />
