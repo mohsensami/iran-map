@@ -71,6 +71,7 @@ export const IranMap = (props: {
                             {provinces.map((province) => (
                                 <path
                                     key={province.id}
+                                    className={styles.provinceItem}
                                     // className={`${province.className} ${
                                     //     province.count > 20 ? `rgb(` + props.colorProvincesRange + `)` : styles.lightGreen
                                     // }`}

@@ -72,7 +72,7 @@ function App() {
                 data={mapData}
                 seaBg="#2196f3"
                 width={600}
-                colorProvincesRange="122, 155, 85"
+                colorProvincesRange="122, 155, 85" // rgb(122, 155, 85)
                 colorSelectedProvince="#e91e63"
                 defaultSelectedProvince="tehran"
             />

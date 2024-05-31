@@ -36,6 +36,12 @@
     overflow: auto;
 }
 
+.provinceItem {
+    stroke: #ccc;
+    stroke-width: 1px;
+    stroke-linejoin: round;
+}
+
 .map .border path {
     fill: #fff;
 }
