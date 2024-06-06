@@ -29,6 +29,7 @@ export const IranMap = (props: {
     colorSelectedProvince?: string;
     defaultSelectedProvince?: string;
     colorProvincesRange?: string;
+    clickProvinceHandler?: (province: IProvinceData) => void;
 }) => {
     const { x, y } = useMouse();
 
@@ -95,6 +96,7 @@ export const IranMap = (props: {
                                     d={province.d}
                                     onMouseOver={() => setProvinceData({ name: province.name, count: province.count })}
                                     onMouseLeave={() => setProvinceData({})}
+                                    onClick={() => props.clickProvinceHandler?.(province)}
                                 />
                             ))}
                         </g>

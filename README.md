@@ -66,6 +66,9 @@ function App() {
         hamadan: 19,
         yazd: 14,
     };
+    const clickProvinceHandler = (province: IProvinceData) => {
+        alert(`${province.name} ${province.count}`);
+    };
     return (
         <>
             <IranMap
@@ -75,6 +78,7 @@ function App() {
                 colorProvincesRange="122, 155, 85" // rgb(122, 155, 85)
                 colorSelectedProvince="#e91e63"
                 defaultSelectedProvince="tehran"
+                clickProvinceHandler={clickProvinceHandler}
             />
         </>
     );
@@ -87,14 +91,15 @@ export default App;
 
 Here are the props that can be passed to the `<IranMap />` component:
 
-| Name                      | Type     | Required | Description                                                                         |
-| :------------------------ | :------- | :------- | :---------------------------------------------------------------------------------- |
-| `data`                    | `object` | True     | An object that has 'Data schema' items as provinces                                 |
-| `colorProvincesRange`     | `string` | True     | it define color range of all provinces which not in defaultSelectedProvince props . |
-| `seaBg`                   | `string` | False    | (optional): Customize the color scheme of the Sea.                                  |
-| `width`                   | `number` | False    | (optional): Width of the svg map. (default 100% of screen)                          |
-| `defaultSelectedProvince` | `string` | False    | (optional): set the default province. (default is none of them)                     |
-| `colorSelectedProvince`   | `string` | False    | (optional): set the color selected province.                                        |
+| Name                      | Type       | Required | Description                                                                         |
+| :------------------------ | :--------- | :------- | :---------------------------------------------------------------------------------- |
+| `data`                    | `object`   | True     | An object that has 'Data schema' items as provinces                                 |
+| `colorProvincesRange`     | `string`   | True     | it define color range of all provinces which not in defaultSelectedProvince props . |
+| `seaBg`                   | `string`   | False    | (optional): Customize the color scheme of the Sea.                                  |
+| `width`                   | `number`   | False    | (optional): Width of the svg map. (default 100% of screen)                          |
+| `defaultSelectedProvince` | `string`   | False    | (optional): set the default province. (default is none of them)                     |
+| `colorSelectedProvince`   | `string`   | False    | (optional): set the color selected province.                                        |
+| `clickProvinceHandler`    | `function` | False    | you can write a function to get each province objects.                              |
 
 ## Authors
 

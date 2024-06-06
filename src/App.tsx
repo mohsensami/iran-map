@@ -1,3 +1,4 @@
+import { IProvinceData } from './interfaces';
 import { IranMap } from './lib/IranMap';
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
         hamadan: 19,
         yazd: 14,
     };
+    const clickProvinceHandler = (province: IProvinceData) => {
+        alert(`${province.name} ${province.count}`);
+    };
     return (
         <>
             <IranMap
@@ -43,6 +47,7 @@ function App() {
                 colorProvincesRange="122, 155, 85"
                 colorSelectedProvince="#e91e63"
                 defaultSelectedProvince="tehran"
+                clickProvinceHandler={clickProvinceHandler}
             />
         </>
     );
