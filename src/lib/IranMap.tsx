@@ -65,7 +65,7 @@ export const IranMap = (props: {
                         enableBackground="new 20 0 970 960"
                         xmlSpace="preserve"
                     >
-                        <g className={styles.border}>
+                        <g style={{ position: 'relative' }} className={styles.border}>
                             <path className={styles.iran} d={iranBorder} />
                         </g>
                         <g className={styles.province}>
@@ -106,17 +106,44 @@ export const IranMap = (props: {
                             // className={props.seaBg ? props.seaBg : styles.sea}
                         >
                             <path
+                                style={{ zIndex: -9 }}
                                 className={styles.caspian}
                                 d={caspianD}
-                                onMouseOver={() => setProvinceData({ name: 'دریاچه خزر' })}
+                                onMouseOver={() => setProvinceData({ name: 'دریای خزر' })}
                                 onMouseLeave={() => setProvinceData({})}
                             />
+                            <text
+                                style={{ fontSize: '20px', fill: '#fff' }}
+                                x="35%"
+                                y="13%"
+                                // transform="rotate(5)"
+                                textAnchor="top"
+                                className={styles.label}
+                            >
+                                دریای خزر
+                            </text>
+                        </g>
+                        <g
+                            className={!props.seaBg ? styles.sea : undefined}
+                            style={props.seaBg ? { fill: props.seaBg } : undefined}
+                            // className={props.seaBg ? props.seaBg : styles.sea}
+                        >
                             <path
                                 className={styles.persian_gulf}
-                                onMouseOver={() => setProvinceData({ name: 'جزایر خلیج فارس' })}
+                                onMouseOver={() => setProvinceData({ name: ' خلیج فارس' })}
                                 onMouseLeave={() => setProvinceData({})}
                                 d={persianGulfD}
                             />
+                            <text
+                                style={{ fontSize: '20px', fill: '#fff' }}
+                                x="32%"
+                                y="81%"
+                                // transform="rotate(20)"
+                                textAnchor="top"
+                                className={styles.label}
+                            >
+                                خلیج فارس
+                            </text>
                         </g>
                         <g className={styles.lake}>
                             <path
